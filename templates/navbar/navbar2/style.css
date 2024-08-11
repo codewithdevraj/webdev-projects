@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: azure;
+}
+ul,
+li {
+  list-style: none;
+  margin: 0;
+}
+body {
+  max-height: 100vh;
+  background-color: rgba(219, 219, 219, 0.84);
+}
+.nav {
+  height: 72px;
+  background-color: #131313;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  img {
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
+  .logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+.navlinks-wrap {
+  .navlinks {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    height: 100%;
+    & > li a {
+      display: inline-block;
+      font-size: 20px;
+      padding: 8px 16px;
+      transition: all 0.2s ease-in-out;
+      border-radius: 5px;
+      &:hover {
+        background-color: #333;
+      }
+    }
+    .dropdown-wrap {
+      & > a {
+        padding: 8px 12px;
+      }
+      position: relative;
+      .dropdown {
+        display: none;
+        position: absolute;
+        background: #2b2b2b;
+        box-shadow: 0px 2px 15px black;
+        width: max-content;
+        padding: 20px 2px;
+        border: 2px solid rgb(64, 64, 64);
+        border-radius: 5px;
+        li a {
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          padding: 12px 16px;
+          font-size: 16px;
+          border-radius: 5px;
+          border-top: 2px solid rgba(128, 128, 128, 0);
+          transition: all 0.1s ease-in-out;
+          &:hover {
+            border-top: 2px solid grey;
+            background: linear-gradient(rgb(45, 45, 45), black);
+          }
+        }
+      }
+      .sup {
+        top: 100%;
+        left: 0;
+        .sub-wrap {
+          position: relative;
+          .sub {
+            padding: 16px 2px;
+            display: none;
+            position: absolute;
+            background: #2e2e2e;
+            min-width: 120px;
+            top: 0;
+            right: 100%;
+            li a {
+              padding: 8px 16px;
+            }
+          }
+        }
+        .sub-wrap:hover {
+          .sub {
+            display: block;
+          }
+          & > a i {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+  i {
+    padding: 0 8px;
+  }
+
+  .dropdown-wrap:hover {
+    .dropdown {
+      display: block;
+    }
+    & > a i {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+}
+
+.cta-btns {
+  display: flex;
+  gap: 12px;
+  .buttons {
+    width: 100px;
+    border: 2px solid rgb(64, 64, 64);
+    a {
+      /* background-color: red; */
+      display: inline-block;
+      width: 100%;
+      padding: 8px 0;
+      text-align: center;
+    }
+    transition: all 0.1s ease-in;
+  }
+  .buttons:hover {
+    transform: translate(0px, -2px);
+  }
+  .signup {
+    background-color: #393939;
+  }
+  .login {
+    background-color: #000000;
+  }
+}
+
+.user {
+  display: none;
+  i {
+    font-size: 1.8rem;
+  }
+}
+.hamburger {
+  display: none;
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .logo-wrap {
+    .logo {
+      font-size: 1.2rem;
+    }
+  }
+  .navlinks-wrap {
+    .navlinks {
+      & > li > a {
+        font-size: 16px;
+      }
+    }
+  }
+  .cta-btns {
+    display: none;
+  }
+  .user {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .hamburger {
+    display: block;
+  }
+  .nav {
+    height: 50px;
+  }
+  .navlinks-wrap {
+    position: fixed;
+    padding-top: 200px;
+    width: 160px;
+    height: 100%;
+    top: 0;
+    left: -200px;
+    background-color: #2b2b2b;
+    transition: all 0.3s ease-in-out;
+    .navlinks {
+      width: 100%;
+      flex-direction: column;
+      gap: 2px;
+      li {
+        width: 80%;
+        a {
+          padding: 12px;
+          width: 100%;
+          text-align: start;
+        }
+      }
+      .dropdown-wrap {
+        .dropdown.sup {
+          top: 0;
+          left: 80%;
+          .sub-wrap {
+            width: 100%;
+            a{
+              font-size: 16px;
+            }
+            .sub {
+              z-index: 5;
+              top: 100%;
+              left: 0%;
+              li{
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .navlinks-wrap.active{
+    left: 0;
+  }
+  .user i {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar || CodeWithDevraj</title>
+  <link rel="shortcut icon"
+    href="https://dl.dropboxusercontent.com/scl/fi/c5c62sbvxfh1bd0lc90dn/code-with-dev-bg-trns.png?rlkey=btllmnj0gugxwc5uia8y8nr89&st=y0wlaipt"
+    type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="nav" id="nav">
+    <div class="hamburger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="logo-wrap">
+      <img
+        src="https://dl.dropboxusercontent.com/scl/fi/c5c62sbvxfh1bd0lc90dn/code-with-dev-bg-trns.png?rlkey=btllmnj0gugxwc5uia8y8nr89&st=y0wlaipt"
+        alt="">
+      <a href="#" class="logo">CodeWithDevraj</a>
+    </div>
+    <div class="navlinks-wrap">
+      <ul class="navlinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li class="dropdown-wrap">
+          <a href="/wrap">Services
+            <i class="fas fa-caret-down"></i>
+          </a>
+          <ul class="dropdown sup">
+            <li class="sub-wrap">
+              <a href="#">
+                <i class="fas fa-angle-right"></i>Web Development</a>
+              <ul class="dropdown sub">
+                <li><a href="#">Frontend</a></li>
+                <li><a href="#">Backend</a></li>
+              </ul>
+            </li>
+            <li class="sub-wrap">
+              <a href="#">
+                <i class="fas fa-angle-right"></i>
+                App Development</a>
+              <ul class="dropdown sub">
+                <li><a href="#">Android</a></li>
+                <li><a href="#">iOS</a></li>
+              </ul>
+            </li>
+            <li class="sub-wrap">
+              <a href="#">
+                <i class="fas fa-angle-right"></i>
+                Digital Marketing</a>
+              <ul class="dropdown sub">
+                <li><a href="#">SEO</a></li>
+                <li><a href="#">SMM</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="cta-btns">
+      <div class="buttons login">
+        <a href="#">Login</a>
+      </div>
+      <div class="buttons signup">
+        <a href="#">Sign Up</a>
+      </div>
+    </div>
+    <div class="user">
+      <i class="fas fa-user"></i>
+    </div>
+  </nav>
+  <main></main>
+  <script>
+    // Prevent default only for dropdown-wrap and sup links
+    const dropdownLinks = document.querySelectorAll(".dropdown-wrap > a, .sup > li > a");
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+      });
+    });
+
+    const hamburger = document.querySelector('.hamburger');
+    const navWrap = document.querySelector('.navlinks-wrap');
+    hamburger.addEventListener('click', () => {
+      navWrap.classList.toggle('active');
+    });
+
+    //click outside navwrap to remove active
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav')) {
+        navWrap.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+
+</html>

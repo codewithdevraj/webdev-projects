@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: url("/assets/bg2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.nav {
+  height: 72px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  border-radius: 0 0 8px 8px;
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 245, 245, 0.234);
+
+}
